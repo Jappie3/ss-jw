@@ -1,0 +1,35 @@
+---
+name: Generate live splits from markdown
+on:
+  push:
+    branches: [master]
+jobs:
+  parse-markdown:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Nix
+        uses: nixbuild/nix-quick-install-action@v31
+        with:
+          nix_conf: |
+            keep-env-derivations = true
+            keep-outputs = true
+            nix-path = nixpkgs=flake:nixpkgs
+
+      - name: Extract Split Data
+        run: |
+          grep -oP '(?<=<!-- SPLIT: )(.*)(?= -->)' JW_route.md > splits.txt
+
+      - name: Generate Split File
+        run: ".github/workflows/gen_splits.sh"
+
+      - name: Get date
+        run: 'echo "OUT_DATE="$(date +"%Y-%m-%dT%H.%M.%S")"" >> $GITHUB_ENV'
+
+      - name: Upload splits.lss
+        uses: actions/upload-artifact@v4
+        with:
+          name: "hk-jw_${{ env.OUT_DATE }}.lss"
+          path: splits.lss
