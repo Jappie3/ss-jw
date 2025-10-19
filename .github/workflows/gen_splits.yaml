@@ -31,5 +31,5 @@ jobs:
       - name: Upload splits.lss
         uses: actions/upload-artifact@v4
         with:
-          name: "hk-jw_${{ env.OUT_DATE }}.lss"
+          name: "hk-ss-jw_${{ env.OUT_DATE }}.lss"
           path: splits.lss
