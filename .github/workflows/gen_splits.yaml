@@ -4,7 +4,7 @@ on:
   push:
     branches: [master]
 jobs:
-  parse-markdown:
+  generate-splits:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
