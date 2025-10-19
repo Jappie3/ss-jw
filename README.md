@@ -5,6 +5,7 @@ The 'official' document can be found on
 The document in this repository is written in markdown and contains HTML
 comments to indicate [live split](https://livesplit.org/) splits. A github
 actions script parses the markdown file & automatically generates a `splits.lss`
-file (see `Actions` > most recent run > `Artifacts`)
+file (see `Actions` > most recent run > `Artifacts`). One drawback is that this
+approach can't include icon data in the `splits.lss` file yet.
 
 (note: not the entire document has been annotated with split markers yet)
