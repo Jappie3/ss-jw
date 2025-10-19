@@ -18,17 +18,17 @@ jobs:
             keep-outputs = true
             nix-path = nixpkgs=flake:nixpkgs
 
-      - name: Extract Split Data
+      - name: Extract split data
         run: |
           grep -oP '(?<=<!-- SPLIT: )(.*)(?= -->)' JW_route.md > splits.txt
 
-      - name: Generate Split File
+      - name: Generate split file
         run: ".github/workflows/gen_splits.sh"
 
       - name: Get date
         run: 'echo "OUT_DATE="$(date +"%Y-%m-%dT%H-%M-%S")"" >> $GITHUB_ENV'
 
-      - name: Upload splits.lss
+      - name: Upload generated splits
         uses: actions/upload-artifact@v4
         with:
           name: "hk-ss-jw_${{ env.OUT_DATE }}.lss"
