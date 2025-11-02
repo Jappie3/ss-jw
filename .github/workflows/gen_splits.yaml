@@ -4,7 +4,7 @@ on:
   push:
     branches: [master]
 jobs:
-  generate-splits:
+  generate-splits-jw:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -32,4 +32,34 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: "hk-ss-jw_${{ env.OUT_DATE }}_${{ github.sha }}.lss"
+          path: splits.lss
+
+  generate-splits-jw-v2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Nix
+        uses: nixbuild/nix-quick-install-action@v31
+        with:
+          nix_conf: |
+            keep-env-derivations = true
+            keep-outputs = true
+            nix-path = nixpkgs=flake:nixpkgs
+
+      - name: Extract split data
+        run: |
+          grep -oP '(?<=<!-- SPLIT: )([a-zA-Z0-9-]*)(?= -->)' JW_route_v2.md > splits.txt
+
+      - name: Generate split file
+        run: ".github/workflows/gen_splits.sh"
+
+      - name: Get date
+        run: 'echo "OUT_DATE="$(date +"%Y-%m-%dT%H-%M-%S")"" >> $GITHUB_ENV'
+
+      - name: Upload generated splits
+        uses: actions/upload-artifact@v4
+        with:
+          name: "hk-ss-jw-v2_${{ env.OUT_DATE }}_${{ github.sha }}.lss"
           path: splits.lss
