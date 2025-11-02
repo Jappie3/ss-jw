@@ -7,6 +7,9 @@
 set -eou pipefail
 #set -x
 
+# TODO:
+# accept custom names for Menu, Manual & EndingSplit
+
 echo '<?xml version="1.0" encoding="UTF-8"?><Run></Run>' >splits.lss
 xmlstarlet edit -L \
   --append '/Run' -t attr -n 'version' -v '1.7.0' \
