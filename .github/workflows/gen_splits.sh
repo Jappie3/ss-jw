@@ -7,9 +7,6 @@
 set -eou pipefail
 #set -x
 
-# TODO:
-# accept custom names for Menu, Manual & EndingSplit
-
 echo '<?xml version="1.0" encoding="UTF-8"?><Run></Run>' >splits.lss
 xmlstarlet edit -L \
   --append '/Run' -t attr -n 'version' -v '1.7.0' \
@@ -38,7 +35,7 @@ maskCount=1
 
 while IFS= read -r match; do
 
-  split_name=$match
+  split_name="$(cut -d' ' -f1 <<<"$match")"
 
   # check if this is a mask shard or a spool fragment
   if [[ "$match" =~ -MaskShard|-SpoolFragment ]]; then
@@ -92,11 +89,32 @@ while IFS= read -r match; do
 
     # get name & icon from json file
     if [[ "$(echo "$match" | cut -c1)" == "-" ]]; then
-      split_name="-$(jq --raw-output ".${match:1}.name" ./.github/workflows/lss_data.json)"
-      icon="$(jq --raw-output ".${match:1}.icon" ./.github/workflows/lss_data.json)"
+
+      icon="$(jq --raw-output ".${split_name:1}.icon" ./.github/workflows/lss_data.json)"
+
+      # check if there's multiple space-separated words in split_name
+      IFS=" " read -ra split_name_arr <<<"$match"
+      if [[ "${#split_name_arr[@]}" -gt 1 ]]; then
+        # if so -> use everything after first space as name
+        split_name="-$(cut -d' ' -f2- <<<"$match")"
+      else
+        # else -> fetch from json file
+        split_name="-$(jq --raw-output ".${split_name:1}.name" ./.github/workflows/lss_data.json)"
+      fi
+
     else
-      split_name="$(jq --raw-output ".${match}.name" ./.github/workflows/lss_data.json)"
-      icon="$(jq --raw-output ".${match}.icon" ./.github/workflows/lss_data.json)"
+
+      icon="$(jq --raw-output ".${split_name}.icon" ./.github/workflows/lss_data.json)"
+
+      # check if there's multiple space-separated words in split_name
+      IFS=" " read -ra split_name_arr <<<"$match"
+      if [[ "${#split_name_arr[@]}" -gt 1 ]]; then
+        # if so -> use everything after first space as name
+        split_name="$(cut -d' ' -f2- <<<"$match")"
+      else
+        split_name="$(jq --raw-output ".${split_name}.name" ./.github/workflows/lss_data.json)"
+      fi
+
     fi
 
     xmlstarlet edit -L \
@@ -136,12 +154,12 @@ maskCount=1
 
 while IFS= read -r match; do
 
-  split_name=$match
+  split_name="$(cut -d' ' -f1 <<<"$match")"
 
   # check if this is a mask shard or a spool fragment
-  if [[ "$match" =~ -MaskShard|-SpoolFragment ]]; then
+  if [[ "$split_name" =~ -MaskShard|-SpoolFragment ]]; then
     # if so -> math time
-    if [[ "$match" == "-MaskShard" ]]; then
+    if [[ "$split_name" == "-MaskShard" ]]; then
       if ((maskCount % 4 == 0)); then
         split_name="Mask"
         count=$((maskCount / 4))
@@ -150,7 +168,7 @@ while IFS= read -r match; do
         count="$maskCount"
       fi
       ((maskCount++))
-    elif [[ "$match" == "-SpoolFragment" ]]; then
+    elif [[ "$split_name" == "-SpoolFragment" ]]; then
       if ((spoolCount % 2 == 0)); then
         split_name="Spool"
         count=$((spoolCount / 2))
@@ -172,8 +190,8 @@ while IFS= read -r match; do
     # not a mask shard or spool fragment
 
     # remove leading dash if present
-    if [[ "$(echo "$match" | cut -c1)" == "-" ]]; then
-      split_name="${match:1}"
+    if [[ "$(echo "$split_name" | cut -c1)" == "-" ]]; then
+      split_name="${split_name:1}"
     fi
 
     xmlstarlet edit -L \

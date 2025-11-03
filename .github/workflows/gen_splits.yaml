@@ -20,7 +20,7 @@ jobs:
 
       - name: Extract split data
         run: |
-          grep -oP '(?<=<!-- SPLIT: )([a-zA-Z0-9-]*)(?= -->)' JW_route.md > splits.txt
+          grep -oP '(?<=<!-- SPLIT: )([a-zA-Z0-9-'\'' ]*)(?= -->)' JW_route.md > splits.txt
 
       - name: Generate split file
         run: ".github/workflows/gen_splits.sh"

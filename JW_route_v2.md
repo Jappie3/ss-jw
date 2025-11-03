@@ -252,7 +252,7 @@
 - Pick up Cogflies in a room to the left a bit farther into the area
 - Grab the Psalm Cylinder a bit further down
 - Drop down and buy the High Halls ventrica
-- SQ <!-- SPLIT: Menu -->
+- SQ <!-- SPLIT: Menu Menu High Halls -->
 
 ### Cogwork Core
 
@@ -291,9 +291,9 @@
   <!-- SPLIT: -SeenShakraSandsOfKarak -->
 - Break the stalactite for the shortcut later, head up
 - Grab Crustnut
-- SQ <!-- SPLIT: -Menu -->
+- SQ <!-- SPLIT: -Menu Menu Crustnut -->
 - Head left, and pick up the Magnetite Dice
-- SQ <!-- SPLIT: -Menu -->
+- SQ <!-- SPLIT: -Menu Menu Dice -->
 - Head left, go up and buy Thief’s Mark from Grindle
 - Go further up, grabbing Flea #20 on the way
   <!-- SPLIT: -SavedFleaBlastedSteps -->
@@ -317,7 +317,7 @@
 - Get the three Plasmium
 - Pick up Memory Locket #6 after the last Plasmium in the bottom left room of
   Wormways
-- SQ <!-- SPLIT: Menu -->
+- SQ <!-- SPLIT: Menu Menu Plasmium -->
 - Turn in "Alchemist’s Assistant" for the Plasmium Phial
 - Head right of Craggler and jump the gap, opening the Bone Bottom elevator on
   the way
@@ -335,7 +335,7 @@
 - Go right and up for Snare Setter
 - Go right, down and left down the long room and grab Mossberry #5
 - Beat the two Moss Mothers for Weavelight
-- SQ <!-- SPLIT: Menu -->
+- SQ <!-- SPLIT: Menu Menu Weavelight -->
 - Buy the Magnetite Brooch from Pebb
 - Bench at Bone Bottom to equip it and take the elevator up
 
@@ -424,7 +424,7 @@
 - Head back right and up, break a wall on the left for Flea #16
   <!-- SPLIT: -SavedFleaBilewaterThieves -->
 - Head down and right to Weavenest Murglin for the Ruined Tool
-- SQ back to Exhaust Organ <!-- SPLIT: Menu -->
+- SQ back to Exhaust Organ <!-- SPLIT: Menu Menu Ruined Tool -->
 - Use the elevator up to Choral Chambers
 - Before dropping down, pick up Memory Locket #5
 - Bellway to Shellwood <!-- SPLIT: -EnterShellwood -->
@@ -457,7 +457,7 @@
 - Kill remaining roaches for roach guts through this area
 - Head left and turn in "Roach Guts" for Tacks
 - Buy spines from Crull and Benjin
-- SQ <!-- SPLIT: Menu -->
+- SQ <!-- SPLIT: Menu Menu Steel Spines -->
 
 ### Greymoor
 
@@ -552,7 +552,7 @@
   <!-- SPLIT: -SavedFleaVog -->
 - Drop down and buy the Bellway
 - Run back to Fleatopia, keep going right for Craftmetal #5
-- SQ back to Songclave <!-- SPLIT: Menu -->
+- SQ back to Songclave <!-- SPLIT: Menu Menu Pale Lake -->
 - Ventrica to Grand Bellway, bellway to Far Fields
 
 ## Part 6: Finishing Act 2
@@ -573,7 +573,7 @@
 - Head right and rescue Flea #29 above a hidden wall jump
   <!-- SPLIT: -SavedFleaBilewaterTrap -->
 - Get the Throwing ring from Shakra and complete "Trail’s End"
-- SQ <!-- SPLIT: Menu -->
+- SQ <!-- SPLIT: Menu Menu Trail's End -->
 
 ### Far Fields
 
@@ -616,7 +616,7 @@
 - Go back to the central room, go down, right on the first opening, use the Key
   of Apostate, then follow the path and pick up the Key of Heretic
 - Go left, left, collect Mask Shard #10 <!-- SPLIT: -MaskShard -->
-- SQ <!-- SPLIT: Menu -->
+- SQ <!-- SPLIT: Menu Menu Slab -->
 - Bellway to Bellhart
 
 ### Putrified Ducts
@@ -645,11 +645,12 @@
 - Pick up Hermit’s Soul
 - Bellway to Grand Bellway, Ventrica to Songclave to progress the quest
 - Farm to a total of ~6,800? Rosaries from Grand Reeds
-  <!-- SPLIT: ManualSplit -->
+  <!-- SPLIT: ManualSplit Rosary farming -->
 - Buy Ascendant’s Grip, Spool Extender, Spool #15, Mask Shard #12, Spider
   Strings, Craftmetal #8 from Jubilana <!-- SPLIT: -SpoolFragment -->
   <!-- SPLIT: -MaskShard -->
-- Beat Grand Mother Silk and start Act 3 <!-- SPLIT: EndingSplit -->
+- Beat Grand Mother Silk and start Act 3
+  <!-- SPLIT: EndingSplit Grand Mother Silk -->
 
 ## Part 7: Early Act 3
 
@@ -762,7 +763,7 @@
 - Climb up Mount Fay, beat Pinstress for the Pin Badge
 - Silk Soar further up, and craft Silkshot
 - Drop down and enter Brightvein for Mask Shard #17 <!-- SPLIT: -MaskShard -->
-- SQ, and Beastling Call out to Bellhart <!-- SPLIT: Menu -->
+- SQ, and Beastling Call out to Bellhart <!-- SPLIT: Menu Menu Brightvein -->
 
 ### End
 
@@ -772,4 +773,4 @@
 - Bellway to Bone Bottom, talk to the Shamans to do Red Memory for the Everbloom
   <!-- SPLIT: -EnterRedMemory --> <!-- SPLIT: RedMemory -->
 - Beastling Call out, Bellway to Deep Docks and beat Lost Lace
-  <!-- SPLIT: -LostLaceEncountered --> <!-- SPLIT: EndingSplit -->
+  <!-- SPLIT: -LostLaceEncountered --> <!-- SPLIT: EndingSplit Lost Lace -->
